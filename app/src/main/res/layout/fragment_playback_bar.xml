@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?attr/colorSurface"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <org.oxycblt.auxio.image.CoverView
@@ -84,7 +85,8 @@
                 app:backgroundTint="?attr/colorSurfaceContainerLow"
                 app:iconTint="@color/sel_checkable_icon"
                 app:strokeColor="@color/sel_checkable_outline"
-                tools:icon="@drawable/ic_skip_next_24" />
+                tools:icon="@drawable/ic_skip_next_24"
+                />
         </com.google.android.material.button.MaterialButtonGroup>
 
     </org.oxycblt.auxio.playback.ui.ForcedLTRFrameLayout>

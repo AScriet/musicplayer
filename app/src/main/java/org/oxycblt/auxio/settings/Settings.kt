@@ -38,7 +38,7 @@ interface Settings<Listener> {
      * @throws NotImplementedError If there is nothing to migrate.
      */
     fun migrate() {
-        throw NotImplementedError()
+        //throw NotImplementedError()
     }
 
     /**

@@ -15,9 +15,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
- 
+
 package org.oxycblt.auxio.settings.categories
 
+import android.annotation.SuppressLint
+import android.content.SharedPreferences
+import androidx.core.app.NotificationCompat
 import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,40 +40,18 @@ import timber.log.Timber as L
  */
 @AndroidEntryPoint
 class UIPreferenceFragment : BasePreferenceFragment(R.xml.preferences_ui) {
+
     @Inject lateinit var uiSettings: UISettings
 
-    override fun onOpenDialogPreference(preference: WrappedDialogPreference) {
-        if (preference.key == getString(R.string.set_key_accent)) {
-            L.d("Navigating to accent dialog")
-            findNavController().navigateSafe(UIPreferenceFragmentDirections.accentSettings())
-        }
-    }
-
+    @SuppressLint("ResourceType")
     override fun onSetupPreference(preference: Preference) {
         when (preference.key) {
             getString(R.string.set_key_theme) -> {
                 L.d("Configuring theme setting")
                 preference.onPreferenceChangeListener =
-                    Preference.OnPreferenceChangeListener { _, value ->
+                    Preference.OnPreferenceChangeListener { _, _ ->
                         L.d("Theme changed, recreating")
                         requireActivity().recreate()
-                        true
-                    }
-            }
-            getString(R.string.set_key_accent) -> {
-                L.d("Configuring accent setting")
-                preference.summary = getString(uiSettings.accent.name)
-            }
-            getString(R.string.set_key_black_theme) -> {
-                L.d("Configuring black theme setting")
-                preference.onPreferenceChangeListener =
-                    Preference.OnPreferenceChangeListener { _, _ ->
-                        val activity = requireActivity()
-                        if (activity.isNight) {
-                            L.d("Black theme changed in night mode, recreating")
-                            activity.recreate()
-                        }
-
                         true
                     }
             }

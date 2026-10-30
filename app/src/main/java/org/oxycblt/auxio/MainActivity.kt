@@ -32,6 +32,7 @@ import org.oxycblt.auxio.databinding.ActivityMainBinding
 import org.oxycblt.auxio.playback.PlaybackViewModel
 import org.oxycblt.auxio.playback.state.DeferredPlayback
 import org.oxycblt.auxio.ui.UISettings
+import org.oxycblt.auxio.util.getInteger
 import org.oxycblt.auxio.util.isNight
 import org.oxycblt.auxio.util.systemBarInsetsCompat
 import timber.log.Timber as L
@@ -87,15 +88,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupTheme() {
         // Apply the theme configuration.
-        AppCompatDelegate.setDefaultNightMode(uiSettings.theme)
-        // Apply the color scheme. The black theme requires it's own set of themes since
-        // it's not possible to modify the themes at run-time.
-        if (isNight && uiSettings.useBlackTheme) {
-            L.d("Applying black theme [accent ${uiSettings.accent}]")
-            setTheme(uiSettings.accent.blackTheme)
-        } else {
-            L.d("Applying normal theme [accent ${uiSettings.accent}]")
-            setTheme(uiSettings.accent.theme)
+        L.d("theme value: %s", uiSettings.theme)
+        when (uiSettings.theme) {
+            getInteger(R.integer.theme_dark) -> setTheme(R.style.Theme_Auxio_Dark)
+            getInteger(R.integer.theme_light) -> setTheme(R.style.Theme_Auxio_Light)
         }
     }
 

@@ -36,7 +36,6 @@ import org.oxycblt.auxio.playback.PlaybackSettings
 import org.oxycblt.auxio.playback.state.DeferredPlayback
 import org.oxycblt.auxio.playback.state.PlaybackStateManager
 import org.oxycblt.auxio.playback.state.Progression
-import org.oxycblt.auxio.widgets.WidgetComponent
 import org.oxycblt.musikr.MusicParent
 import org.oxycblt.musikr.Song
 import timber.log.Timber as L
@@ -49,7 +48,6 @@ private constructor(
     private val playbackSettings: PlaybackSettings,
     exoHolderFactory: ExoPlaybackStateHolder.Factory,
     sessionHolderFactory: MediaSessionHolder.Factory,
-    widgetComponentFactory: WidgetComponent.Factory,
     systemReceiverFactory: SystemPlaybackReceiver.Factory,
 ) : PlaybackStateManager.Listener {
     class Factory
@@ -59,7 +57,6 @@ private constructor(
         private val playbackSettings: PlaybackSettings,
         private val exoHolderFactory: ExoPlaybackStateHolder.Factory,
         private val sessionHolderFactory: MediaSessionHolder.Factory,
-        private val widgetComponentFactory: WidgetComponent.Factory,
         private val systemReceiverFactory: SystemPlaybackReceiver.Factory,
     ) {
         fun create(context: Context, foregroundListener: ForegroundListener) =
@@ -70,7 +67,6 @@ private constructor(
                 playbackSettings,
                 exoHolderFactory,
                 sessionHolderFactory,
-                widgetComponentFactory,
                 systemReceiverFactory,
             )
     }
@@ -80,11 +76,9 @@ private constructor(
     private var autoStopJob: Job? = null
     private val exoHolder = exoHolderFactory.create()
     private val sessionHolder = sessionHolderFactory.create(context, foregroundListener)
-    private val widgetComponent = widgetComponentFactory.create(context)
     private val systemReceiver =
         systemReceiverFactory.create(
             context,
-            widgetComponent,
             onExitRequested = { playbackManager.endSession() },
         )
 
@@ -115,7 +109,6 @@ private constructor(
     fun attach(): MediaSessionCompat.Token {
         exoHolder.attach()
         sessionHolder.attach()
-        widgetComponent.attach()
         systemReceiver.attach()
         playbackManager.addListener(this)
         updateAutoStopTimer(playbackManager.progression.isPlaying)
@@ -175,7 +168,6 @@ private constructor(
         waitJob.cancel()
         playbackManager.removeListener(this)
         systemReceiver.release()
-        widgetComponent.release()
         sessionHolder.release()
         exoHolder.release()
     }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Dark Theme - Surface Colors -->
+    <color name="surface_dark_1">#131317</color>
+    <color name="surface_dark_2">#18181C</color>
+
+    <!-- Neutral Palette -->
+    <color name="neutral_dark">#313030</color>
+    <color name="neutral">#444748</color>
+    <color name="neutral_light">#747878</color>
+    <color name="neutral_variant_light">#C4C7C7</color>
+
+    <!-- Error Palette -->
+    <color name="error">#BA1A1A</color>
+    <color name="error_dark_container">#410002</color>
+    <color name="error_container_light">#FFDAD6</color>
+    <color name="on_error_dark">#FFB4AB</color>
+    <color name="on_error_container_dark">#FFDAD6</color>
+
+    <!-- Outline Colors -->
+    <color name="outline_variant_light">#C4C7C7</color>
+
+</resources>

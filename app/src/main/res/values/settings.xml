@@ -6,9 +6,7 @@
     <string name="set_key_music" translatable="false">auxio_music</string>
     <string name="set_key_audio" translatable="false">auxio_audio</string>
 
-    <string name="set_key_theme" translatable="false">KEY_THEME2</string>
-    <string name="set_key_black_theme" translatable="false">KEY_BLACK_THEME</string>
-    <string name="set_key_accent" translatable="false">auxio_accent2</string>
+    <string name="set_key_theme" translatable="false">KEY_THEME</string>
 
     <string name="set_key_reindex" translatable="false">auxio_reindex</string>
     <string name="set_key_rescan" translatable="false">auxio_rescan</string>
@@ -66,19 +64,16 @@
     <string name="set_key_force_reload_workaround" translatable="false">auxio_force_reload</string>
 
     <string-array name="entries_theme">
-        <item>@string/set_theme_auto</item>
-        <item>@string/set_theme_day</item>
-        <item>@string/set_theme_night</item>
+        <item>@string/set_theme_light</item>
+        <item>@string/set_theme_dark</item>
     </string-array>
 
     <array name="icons_theme">
-        <item>@drawable/ic_auto_24</item>
         <item>@drawable/ic_light_24</item>
         <item>@drawable/ic_dark_24</item>
     </array>
 
     <integer-array name="values_theme">
-        <item>@integer/theme_auto</item>
         <item>@integer/theme_light</item>
         <item>@integer/theme_dark</item>
     </integer-array>
@@ -159,7 +154,6 @@
         <item>@integer/replay_gain_dynamic</item>
     </integer-array>
 
-    <integer name="theme_auto">-1</integer>
     <integer name="theme_light">1</integer>
     <integer name="theme_dark">2</integer>
 

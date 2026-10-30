@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/set_root_title">
     <Preference
-        app:icon="@drawable/ic_accent_24"
+        app:icon="@drawable/ic_theme_24"
         app:key="@string/set_key_ui"
         app:summary="@string/set_ui_desc"
         app:title="@string/set_ui" />

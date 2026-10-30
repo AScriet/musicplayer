@@ -9,10 +9,5 @@
     -->
     <color name="chrome_transparent_ish">#01ffffff</color>
 
-    <!-- Replicate extra theme values for widgets -->
-    <color name="widget_surface">@color/material_dynamic_primary95</color>
-    <color name="widget_surface_inverse">@color/material_dynamic_neutral20</color>
-    <color name="widget_on_surface_inverse">@color/material_dynamic_neutral95</color>
-
     <color name="dynamic_primary">@color/m3_ref_palette_dynamic_primary40</color>
 </resources>

@@ -5,6 +5,9 @@
 
     <string name="info_app_desc">A simple, rational music player for android.</string>
 
+    <string name="app_name">MusicPlayer</string>
+    <string name="info_app_name">MusicPlayer</string>
+
     <!-- Label Namespace | Static Labels -->
     <eat-comment />
 
@@ -230,10 +233,8 @@
     <string name="set_ui">Look and feel</string>
     <string name="set_ui_desc">Change the theme and colors of the app</string>
     <string name="set_theme">Theme</string>
-    <string name="set_theme_auto">Automatic</string>
-    <string name="set_theme_day">Light</string>
-    <string name="set_theme_night">Dark</string>
-    <string name="set_accent">Color scheme</string>
+    <string name="set_theme_light">Light</string>
+    <string name="set_theme_dark">Dark</string>
     <string name="set_black_mode">Black theme</string>
     <string name="set_black_mode_desc">Use a pure black dark theme</string>
     <string name="set_round_mode">Round mode</string>
@@ -419,24 +420,8 @@
     <!-- Color Label namespace | Accent names -->
     <eat-comment />
 
-    <string name="clr_red">Red</string>
-    <string name="clr_pink">Pink</string>
-    <string name="clr_purple">Purple</string>
-    <string name="clr_deep_purple">Deep purple</string>
-    <string name="clr_indigo">Indigo</string>
     <string name="clr_blue">Blue</string>
-    <string name="clr_deep_blue">Deep blue</string>
-    <string name="clr_cyan">Cyan</string>
-    <string name="clr_teal">Teal</string>
-    <string name="clr_green">Green</string>
-    <string name="clr_deep_green">Deep green</string>
-    <string name="clr_lime">Lime</string>
-    <string name="clr_yellow">Yellow</string>
-    <string name="clr_orange">Orange</string>
-    <string name="clr_brown">Brown</string>
     <string name="clr_grey">Grey</string>
-    <!-- As in "Dynamic Colors"/Material You theming -->
-    <string name="clr_dynamic">Dynamic</string>
 
     <!-- Format Namespace | Value formatting/plurals -->
     <eat-comment />
@@ -496,4 +481,21 @@
         <item quantity="one">%d second</item>
         <item quantity="other">%d seconds</item>
     </plurals>
+
+    <!-- Format Namespace | Value formatting/plurals -->
+    <string name="fmt_two" translatable="false">%1$s • %2$s</string>
+    <string name="fmt_three" translatable="false">%1$s • %2$s • %3$s</string>
+    <string name="fmt_number" translatable="false">%d</string>
+    <string name="fmt_zipped_names" translatable="false">%1$s (%2$s)</string>
+    <string name="fmt_date_range" translatable="false">%s - %s</string>
+
+    <!-- Codec Namespace | Format names -->
+    <string name="cdc_vorbis">Vorbis</string>
+    <string name="cdc_opus">Opus</string>
+    <string name="cdc_wav">Microsoft WAVE</string>
+    <string name="cnt_ogg">Ogg %s</string>
+
+    <!-- Pkg Namespace | Dynamic package names -->
+    <string name="pkg_authority_cover">org.oxycblt.auxio.image.CoverProvider</string>
+
 </resources>
