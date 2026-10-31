@@ -106,6 +106,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/spacing_small"
             android:layout_marginEnd="@dimen/spacing_small"
+            app:trackStopIndicatorSize="0dp"
             tools:progress="70" />
 
     </org.oxycblt.auxio.playback.ui.ForcedLTRFrameLayout>

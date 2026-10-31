@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:state_pressed="true"
-        app:widthChange="15%" />
+        app:widthChange="0%"
+        />
     <item app:widthChange="0%" />
 </selector>

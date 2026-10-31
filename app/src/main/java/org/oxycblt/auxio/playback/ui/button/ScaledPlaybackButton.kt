@@ -67,7 +67,7 @@ constructor(
                 paddingEnd = paddingEnd,
                 paddingBottom = paddingBottom,
                 iconSize = iconSize,
-                strokeWidth = strokeWidth,
+                strokeWidth = 0,
                 shapeAppearance = shapeAppearance,
             )
     }

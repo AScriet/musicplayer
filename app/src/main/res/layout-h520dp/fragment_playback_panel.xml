@@ -95,7 +95,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playback_info_container" />
+        app:layout_constraintTop_toBottomOf="@+id/playback_info_container"
+        />
 
     <org.oxycblt.auxio.playback.ui.ForcedLTRFrameLayout
         android:id="@+id/playback_controls_container"
@@ -113,7 +114,9 @@
         <org.oxycblt.auxio.playback.ui.button.ScaledPlaybackButtonGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:spacing="@dimen/spacing_small">
+            android:spacing="@dimen/spacing_small"
+            app:buttonSizeChange="@xml/safe_button_group_size_change">
+
 
             <org.oxycblt.auxio.playback.ui.button.ScaledPlaybackButton
                 android:id="@+id/playback_repeat"
@@ -141,7 +144,8 @@
                 android:contentDescription="@string/desc_play_pause"
                 app:icon="@drawable/sel_playing_state_24"
                 app:materialSizeOverlay="@style/SizeOverlay.Material3Expressive.Button.IconButton.Large"
-                tools:icon="@drawable/ic_play_24" />
+                tools:icon="@drawable/ic_play_24"
+                />
 
             <org.oxycblt.auxio.playback.ui.button.ScaledPlaybackButton
                 android:id="@+id/playback_skip_next"

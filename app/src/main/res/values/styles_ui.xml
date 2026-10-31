@@ -114,7 +114,6 @@
     </style>
 
     <style name="Widget.Auxio.MaterialButtonGroup" parent="Widget.Material3.MaterialButtonGroup">
-        <item name="buttonSizeChange">@xml/safe_button_group_size_change</item>
         <item name="android:gravity">center</item>
         <item name="android:orientation">horizontal</item>
     </style>
@@ -473,15 +472,18 @@
         <item name="android:checkable">true</item>
         <item name="toggleCheckedStateOnClick">false</item>
         <item name="iconTint">@color/sel_checkable_icon</item>
-        <item name="strokeColor">@color/sel_checkable_outline</item>
-        <item name="backgroundTint">?attr/colorSurfaceContainerLow</item>
+        <item name="strokeColor">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
     </style>
 
-    <style name="Widget.Auxio.Button.Playback.Skip" parent="Widget.Material3Expressive.Button.IconButton.Tonal" />
+    <style name="Widget.Auxio.Button.Playback.Skip" parent="Widget.Material3Expressive.Button.IconButton.Tonal">
+        <item name="android:backgroundTint">@android:color/transparent</item>
+    </style>
 
     <style name="Widget.Auxio.Button.Playback.PlayPause" parent="Widget.Material3Expressive.Button.IconButton.Tonal">
         <item name="android:checkable">true</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.Auxio.Button.PrimaryTonal</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.ExtraExtraLarge</item>
     </style>
     <style name="ThemeOverlay.Auxio.Button.PrimaryTonal" parent="">
         <item name="colorContainer">?attr/colorPrimaryContainer</item>

@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
- 
+
 package org.oxycblt.auxio.playback
 
 import android.annotation.SuppressLint
@@ -155,16 +155,17 @@ class PlaybackPanelFragment :
         // TODO: Add better playback button accessibility
         binding.playbackRepeat.setOnClickListener { playbackModel.toggleRepeatMode() }
         binding.playbackSkipPrev.setOnClickListener { playbackModel.prev() }
-        binding.playbackPlayPause.apply {
-            @SuppressLint("RestrictedApi")
-            setCornerSpringForce(
-                SpringForce().apply {
-                    stiffness = 700f
-                    dampingRatio = 0.9f
-                }
-            )
-            setOnClickListener { playbackModel.togglePlaying() }
-        }
+//        binding.playbackPlayPause.apply {
+//            @SuppressLint("RestrictedApi")
+//            setCornerSpringForce(
+//                SpringForce().apply {
+//                    stiffness = 700f
+//                    dampingRatio = 0.9f
+//                }
+//            )
+//            setOnClickListener { playbackModel.togglePlaying() }
+//        }
+        binding.playbackPlayPause.setOnClickListener { playbackModel.togglePlaying() }
         binding.playbackSkipNext.setOnClickListener { playbackModel.next() }
         binding.playbackShuffle.setOnClickListener { playbackModel.toggleShuffled() }
         binding.playbackMore?.setOnClickListener {
@@ -182,41 +183,6 @@ class PlaybackPanelFragment :
         collectImmediately(playbackModel.isShuffled, ::updateShuffled)
         collectImmediately(playbackModel.pagerQueue, ::updatePager)
     }
-
-    // FIXME: Old code!! Maybe not necessary anymore?
-    //    override fun onStart() {
-    //        super.onStart()
-    //        playbackModel.song.value?.let { requireBinding().playbackCover.bind(it) }
-    //        requireBinding().root.viewTreeObserver.addOnGlobalLayoutListener(this)
-    //    }
-
-    //    override fun onStop() {
-    //        super.onStop()
-    //        requireBinding().root.viewTreeObserver.removeOnGlobalLayoutListener(this)
-    //    }
-
-    //    override fun onGlobalLayout() {
-    //        if (binding == null || lastCoverWidth < 0) {
-    //            return
-    //        }
-    // Hacky workaround for cover radius not being preserved in between sizing changes
-    // (i.e split screen or landscape mode)
-    // For some reason ConstraintLayout does several passes on 1:1 elements that causes their
-    // size to radically change, so we wait until it stabilizes and then force an image
-    // reload if needed. Optimistically this is a no-op from coil caching, but when the cover
-    // did accidentally load the wrong image (with weird corner radius intended for bigger
-    // covers) we can force it to reload.
-    // If this breaks, it's fine since we also started a load as we normally did w/state
-    // updates, so the cover will not break.
-    //        val binding = requireBinding()
-    //        val coverWidth = binding.playbackCover.width
-    //        if (lastCoverWidth != coverWidth) {
-    //            lastCoverWidth = coverWidth
-    //        } else {
-    //            playbackModel.song.value?.let { binding.playbackCover.bind(it) }
-    //            lastCoverWidth = -1
-    //        }
-    //    }
 
     override fun onDestroyBinding(binding: FragmentPlaybackPanelBinding) {
         equalizerLauncher = null
@@ -291,7 +257,6 @@ class PlaybackPanelFragment :
 
     private fun updatePlaying(isPlaying: Boolean) {
         requireBinding().playbackPlayPause.isChecked = isPlaying
-        requireBinding().playbackSeekBar?.setWaveEnabled(isPlaying)
     }
 
     private fun updateShuffled(isShuffled: Boolean) {

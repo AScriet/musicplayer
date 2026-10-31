@@ -41,15 +41,12 @@ import timber.log.Timber as L
 @AndroidEntryPoint
 class UIPreferenceFragment : BasePreferenceFragment(R.xml.preferences_ui) {
 
-    @Inject lateinit var uiSettings: UISettings
-
-    @SuppressLint("ResourceType")
     override fun onSetupPreference(preference: Preference) {
         when (preference.key) {
             getString(R.string.set_key_theme) -> {
                 L.d("Configuring theme setting")
                 preference.onPreferenceChangeListener =
-                    Preference.OnPreferenceChangeListener { _, _ ->
+                    Preference.OnPreferenceChangeListener { _, value ->
                         L.d("Theme changed, recreating")
                         requireActivity().recreate()
                         true
